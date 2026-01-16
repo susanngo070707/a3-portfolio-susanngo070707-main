@@ -22,7 +22,7 @@
   "chat.implicitContext.suggestedContext": false,
   "chat.extensionTools.enabled": false,
   "chat.showAgentSessionsViewDescription": false,
-  "html.format.enable": false,
+  "html.format.enable": true,
   "[html]": {
     "editor.formatOnSave":false,
   }
