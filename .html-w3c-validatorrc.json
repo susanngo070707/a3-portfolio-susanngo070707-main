@@ -1,4 +1,3 @@
 {
-  "validator": "https://validator.w3.org/nu/",
-  "format": "text"
+  "files": ["index.html", "about.html", "project.html"]
 }
