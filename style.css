@@ -5,16 +5,17 @@
 }
 
 body {
-  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Oxygen,
-    Ubuntu, Cantarell, sans-serif;
+  font-family: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+    sans-serif;
   background-color: #ffffff;
   color: #333;
   line-height: 1.6;
-  cursor: none !important;
+  cursor: none;
+  overflow-x: hidden;
 }
 
 body * {
-  cursor: none !important;
+  cursor: none;
 }
 
 #custom-cursor {
@@ -25,125 +26,301 @@ body * {
   border-radius: 50%;
   pointer-events: none;
   z-index: 99999;
-  display: block;
 }
 
-header {
-  padding: 2rem 0;
-  text-align: center;
-  border-bottom: 1px solid #f0f0f0;
+#custom-cursor.hover {
+  transform: scale(1.5);
+  background-color: #cd7b82;
+}
+
+nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background-color: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  z-index: 1000;
+  padding: 1.5rem 3rem;
 }
 
 nav ul {
   list-style: none;
   display: flex;
   justify-content: center;
-  gap: 1.5rem;
-  margin-bottom: 2rem;
-}
-
-header h1 {
-  color: #bfa4a6;
-  font-size: 2.5rem;
-  font-weight: 300;
-  letter-spacing: 2px;
-}
-
-nav ul div {
-  display: inline-block;
-}
-
-nav ul li {
-  display: inline;
-  list-style: none;
+  gap: 3rem;
+  align-items: center;
 }
 
 nav a {
-  display: inline-block;
-  padding: 0.5rem 1.5rem;
   text-decoration: none;
   font-size: 0.9rem;
-  font-weight: 500;
-  border: 2px solid #bfa4a6;
-  color: #bfa4a6;
-  border-radius: 4px;
-  transition: all 0.3s ease;
-  letter-spacing: 1px;
+  font-weight: 400;
+  padding: 0.5rem 0;
+  color: #cd7b82;
+  letter-spacing: 0.5px;
+  display: inline-block;
+  position: relative;
+  transition: color 0.3s ease;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background-color: #cd7b82;
+  transition: width 0.3s ease;
 }
 
 nav a:hover {
-  box-shadow: inset 0 0 0.55em 0em #bfa4a6;
-  border-color: #bfa4a6;
-  color: #bfa4a6;
-  transform: translateY(-2px);
+  color: #8b9c7c;
 }
 
-main {
-  max-width: 800px;
-  margin: 4rem auto;
-  padding: 0 2rem;
+nav a:hover::after {
+  width: 100%;
+  background-color: #8b9c7c;
 }
 
-article {
+.intro-section {
+  min-height: 50vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10rem 3rem 4rem;
+}
+
+.intro-container {
+  display: flex;
+  gap: 3rem;
+  align-items: center;
+  max-width: 700px;
+}
+
+.intro-image {
+  flex: 0 0 200px;
+  height: 200px;
+  background-color: #d3d3d3;
+  border-radius: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.intro-image p {
+  font-size: 0.85rem;
+  color: #666;
+  text-align: center;
+  line-height: 1.4;
+}
+
+.intro-text {
+  flex: 1;
+  font-size: 1.1rem;
+  color: #8b9c7c;
+  font-weight: 400;
+  line-height: 1.6;
+}
+
+.projects-section {
+  padding: 4rem 3rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.projects-title {
+  font-family: "Inter", sans-serif;
+  font-size: 3rem;
+  margin-bottom: 3rem;
+  font-weight: 400;
+  line-height: 1.2;
+}
+
+.title-pink {
+  color: #cd7b82;
+}
+
+.title-green {
+  color: #8b9c7c;
+}
+
+.year-section {
+  margin-bottom: 4rem;
+}
+
+.year-title {
+  font-size: 1.5rem;
+  color: #cd7b82;
+  margin-bottom: 1.5rem;
+  font-weight: 400;
+}
+
+.project-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2rem;
+}
+
+.project-card {
+  flex: 1 1 calc(50% - 1rem);
+  min-width: 250px;
+  text-decoration: none;
+  display: block;
+  transition: transform 0.3s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+}
+
+.project-placeholder {
+  width: 100%;
+  height: 250px;
+  background-color: #d3d3d3;
+  border-radius: 4px;
+  transition: background-color 0.3s ease;
+}
+
+.project-card:hover .project-placeholder {
+  background-color: #c5c5c5;
+}
+
+.about-page {
+  padding: 8rem 3rem 4rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.about-intro {
+  font-size: 1rem;
+  color: #8b9c7c;
+  margin-bottom: 3rem;
+  font-weight: 400;
+}
+
+.about-columns {
+  display: flex;
+  gap: 6rem;
+}
+
+.about-left {
+  flex: 1;
+}
+
+.about-right {
+  flex: 1;
+}
+
+.about-section {
   margin-bottom: 3rem;
 }
 
-article h2 {
-  color: #bfa4a6;
-  font-size: 2rem;
-  font-weight: 400;
+.about-section h2 {
+  font-size: 1.2rem;
+  color: #cd7b82;
   margin-bottom: 1rem;
+  font-weight: 500;
 }
 
-article h3 {
-  color: #333;
-  font-size: 1.5rem;
-  font-weight: 400;
-  margin: 2rem 0 1rem;
+.about-section h3 {
+  font-size: 1rem;
+  color: #cd7b82;
+  margin-bottom: 0.3rem;
+  font-weight: 500;
+  transition: color 0.3s ease;
 }
 
-article p {
-  color: #666;
+.about-section h3:hover {
+  color: #8b9c7c;
+}
+
+.about-section p {
+  color: #cd7b82;
+  font-size: 0.9rem;
+  margin-bottom: 0.3rem;
+  line-height: 1.6;
+}
+
+.about-item {
+  margin-bottom: 1.5rem;
+}
+
+.project-detail-page {
+  padding: 8rem 3rem 4rem;
+  max-width: 1200px;
+  margin: 0 auto;
+}
+
+.project-header {
+  margin-bottom: 3rem;
+}
+
+.project-title {
+  font-size: 2.5rem;
+  color: #cd7b82;
   margin-bottom: 1rem;
+  font-weight: 500;
+}
+
+.project-description {
   font-size: 1.1rem;
+  color: #666;
+  line-height: 1.6;
 }
 
-section {
-  margin-bottom: 2rem;
+.project-images-grid {
+  display: flex;
+  flex-direction: column;
+  gap: 3rem;
+}
+
+.project-image-container {
+  position: relative;
+  width: 100%;
+}
+
+.project-img {
+  width: 100%;
+  height: 500px;
+  background-color: #d3d3d3;
+  border-radius: 4px;
+  object-fit: cover;
+  display: block;
+}
+
+.image-label {
+  position: absolute;
+  top: 1rem;
+  left: 1rem;
+  background-color: rgba(205, 123, 130, 0.9);
+  color: white;
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  font-size: 0.9rem;
+  font-weight: 500;
 }
 
 footer {
+  background-color: #ffffff;
+  padding: 3rem 2rem;
   text-align: center;
-  padding: 2rem;
   margin-top: 4rem;
-  border-top: 1px solid #f0f0f0;
-  color: #999;
 }
 
 footer p {
-  margin: 0.5rem 0;
+  color: #cd7b82;
+  margin: 0.3rem 0;
+  font-size: 0.9rem;
 }
 
 footer a {
-  color: #bfa4a6;
+  color: #cd7b82;
   text-decoration: none;
   transition: opacity 0.3s ease;
 }
 
 footer a:hover {
   opacity: 0.7;
-}
-
-@media (max-width: 768px) {
-  nav ul {
-    gap: 1rem;
-  }
-
-  header h1 {
-    font-size: 2rem;
-  }
-
-  main {
-    margin: 2rem auto;
-  }
 }
