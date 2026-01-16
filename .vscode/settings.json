@@ -25,6 +25,7 @@
   "html.format.enable": true,
   "[html]": {
     "editor.formatOnSave":false,
+    "editor.defaultFormatter": null
   }
 }
 
